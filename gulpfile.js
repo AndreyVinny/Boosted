@@ -98,10 +98,7 @@ function clean () {
 }
 
 
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-});
+gulp.task('deploy', () => src('dist/**/*').pipe(ghPages()));
 
 
 let build = gulp.series(clean, gulp.parallel(js, css, html, images));
