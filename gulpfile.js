@@ -31,7 +31,8 @@ let { src, dest } = require('gulp'),
               del = require('del'),
              scss = require('gulp-sass')(require('sass')),
      autoprefixer = require('gulp-autoprefixer'),
-            image = require('gulp-image'); 
+            image = require('gulp-image'),
+            ghPages = require('gulp-gh-pages');
 
 
 
@@ -60,7 +61,7 @@ function css () {
                 outputStyle: 'expanded'
             })
         )
-        .pipe( 
+        .pipe(
             autoprefixer({
                 overrideBrowserslist: ['last 5 versions'],
                 cascade: true
@@ -96,6 +97,13 @@ function clean () {
     return del(path.clean);
 }
 
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
+
+
 let build = gulp.series(clean, gulp.parallel(js, css, html, images));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
@@ -106,4 +114,3 @@ exports.html = html;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
-
