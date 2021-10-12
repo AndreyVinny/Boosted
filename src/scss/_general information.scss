@@ -1,0 +1,35 @@
+$color_text_main: #000;
+$color_spec_first: #fff;
+$color_spec_third: #CFCFCF;
+$color_bg_footer: #F7F7F7;
+$color_text_spec: #FF4A32;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+@mixin flex ($fd, $jc, $ai, $fw) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $fw;
+}

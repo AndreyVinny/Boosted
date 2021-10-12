@@ -1,0 +1,128 @@
+.about {
+    margin-top: 52px;
+    overflow: hidden;
+}
+
+.about_cont_text {
+    text-align: center;
+    opacity: 0;
+    transform: translate(0px, 100%);
+    transition: all 1s ease;
+    &._active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    h2 {
+        font-weight: normal;
+        font-size: 32px;
+        margin-bottom: 17px;
+    }
+    p {
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 19px;
+        margin: 0 auto;
+        width: 50%;
+        padding-bottom: 25px;
+    }
+    &::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 70px;
+      height: 2px;
+      background: $color_spec_third;
+    }
+}
+
+.about_img {
+  @include flex (row, center, center, nowrap);
+  margin: 55px 0px 20px;
+}
+
+.about_img_box {
+  margin: 10px;
+  position: relative;
+  img {
+    filter: grayscale(100%);
+    transition: all .3s ease-out;
+    width: 480px;
+    height: 480px;
+  }
+  .about_img_text {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    color: $color_text_main;
+    z-index: 10;
+    text-align: center;
+  }
+  .icon-flash {
+    fill: $color_text_main;
+  }
+  &:hover {
+    img {
+      filter: grayscale(0%);
+    }
+    .about_img_text {
+      color: $color_spec_first;
+    }
+    .icon-flash {
+      fill: $color_spec_first;
+    }
+  }
+}
+
+.about_img_box_1 {
+  opacity: 0;
+  transform: translate(-100%, 0px);
+  transition: all 1s ease;
+      &._active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
+}
+.about_img_box_2 {
+  opacity: 0;
+  transform: translate(100%, 0px);
+  transition: all 1s ease;
+      &._active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
+}
+
+
+@media (max-width: $notebook) {
+  .about_cont_text {
+      p {
+          width: 100%;
+      }
+  }
+
+  .about_img {
+      @include flex (column, center, center, nowrap);
+  }
+}
+
+@media (max-width: $tablet) {
+  .about_img {
+    margin: 22px 0px 20px;
+  }
+
+  .about_img_box {
+    img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .about_img_box {
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}

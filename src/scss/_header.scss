@@ -1,0 +1,188 @@
+
+.header_cont {
+    @include flex (row, space-between, center, nowrap);
+    padding: 15px 0px;
+}
+
+.nav_menu {
+    @include flex (row, center, center, nowrap);
+    list-style-type: none;
+    .nav_item_link {
+        text-decoration: none;
+        color: $color_text_main;
+        padding: 5px 11px;
+        &:hover,
+        &:active,
+        &:focus{
+            color: rgb(23, 0, 128)
+        }
+    }
+}
+
+.ham_menu {
+    @include flex (column, flex-start, flex-end, nowrap);
+    cursor: pointer;
+    display: none;
+    .ham_menu_line {
+        display: block;
+        width: 35px;
+        height: 4px;
+        margin-bottom: 5px;
+        background: $color_text_main;
+    }
+}
+
+.header_cont_info {
+    @include flex (row, space-between, center, nowrap);
+    img {
+        padding: 5px;
+    }
+}
+
+.header_main{
+    background-image: url(../img/header_bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 810px;
+    padding: 53px 0px;
+    text-align: center;
+}
+
+.header_main_text {
+  opacity: 0;
+  transform: translate(0px, 50%);
+  transition: all 1s ease;
+      &._active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
+    h1 {
+        font-size: 44px;
+        margin-bottom: 14px;
+    }
+    p {
+        font-weight: normal;
+        font-size: 15px;
+        margin-bottom: 22px;
+    }
+}
+
+.button {
+    display: inline-block;
+    color: $color_spec_first;
+    background: $color_text_spec;
+    padding: 5px 27px;
+    border-radius: 35px;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 10px 6px;
+}
+
+.icon_top {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    cursor: pointer;
+    &:after,
+    &:hover,
+    &:focus {
+        fill: $color_text_spec;
+    }
+}
+
+
+
+.header_main_partner {
+    background: $color_text_main;
+}
+
+.partner_block {
+    @include flex (row, space-between, center, nowrap);
+}
+
+.sprite { background: url('../img/partner_sprite.png') no-repeat top left; width: 150px; margin: 18px 3px 24px;}
+.sprite.Rectangle-1 { background-position: 0 0; width: 206px; height: 48px; }
+.sprite.Rectangle-2 { background-position: 0 -58px; height: 41px; }
+.sprite.Rectangle-3 { background-position: 0 -109px; width: 158px; height: 33px; }
+.sprite.Rectangle { background-position: 0 -152px; height: 31px; }
+
+@media (max-width: $pc){
+    .nav_menu {
+        .nav_item_link {
+            padding: 5px 8px;
+        }
+    }
+}
+
+@media (max-width: $notebook) {
+    .ham_menu {
+        position: relative;
+        display: block;
+    }
+
+    .nav_menu {
+        @include flex (column, center, flex-end, wrap);
+        transition: all .5s ease-in-out;
+        z-index: 10;
+        position: absolute;
+        top: -300px;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        background: #fff;
+        transition: all 1s ease-out;
+        .nav_item_link {
+            font-size: 22px;
+            color: $color_text_main;
+            padding: 15px 10px;
+        }
+            &:hover {
+                color: rgb(18, 34, 18);
+            }
+        &.active {
+            opacity: 1;
+            top: 60px;
+        }
+        .nav_item {
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            padding: 11px;
+            background: none;
+        }
+    }
+
+    .ham_menu {
+        z-index: 1000;
+        position: relative;
+        &.active {
+            & .ham_menu_line {
+            transition: all .4s ease-in-out;
+                &:nth-child(1) {
+                    transform: translateY(10px) rotate(45deg); }
+                &:nth-child(2) {
+                    opacity: 0; }
+                &:nth-child(3) {
+                    transform: translateY(-8px) rotate(-45deg); }
+            }
+        }
+    }
+
+    .header_cont_info {
+        display: none;
+    }
+
+
+    .partner_block {
+        @include flex (row, space-between, center, wrap);
+        padding: 18px 0px 24px;
+    }
+}
+
+
+@media (max-width: $mobile) {
+    .partner_block {
+        @include flex (column, center, center, wrap);
+    }
+}

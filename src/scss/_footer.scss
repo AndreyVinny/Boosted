@@ -1,0 +1,88 @@
+.footer {
+  padding: 50px 0px;
+  background: $color_bg_footer;
+  @include flex (row, space-between, top, nowrap);
+}
+
+.footer_block {
+    @include flex (row, space-between, top, nowrap);
+}
+
+.footer_block_box {
+    width: 33.3%;
+    padding-bottom: 12px;
+    h2 {
+        font-size: 20px;
+        font-weight: 400;
+        padding-bottom: 10px;
+    }
+    p {
+      font-size: 13px;
+    }
+    .footer_adres {
+      padding-top: 22px;
+    }
+    img {
+      margin: 0 auto;
+    }
+}
+
+.footer_nav_list {
+    a {
+      color: $color_text_main;
+      font-size: 13px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    li {
+      padding: 2px 0px;
+    }
+}
+
+.footer_bottom {
+    padding: 19px 0px 32px;
+}
+
+.footer_bottom_cont {
+    @include flex (row, space-between, top, wrap);
+}
+
+.footer_bottom_block {
+  padding-bottom: 12px;
+  p {
+    a {
+        color: $color_text_spec;
+        cursor: pointer;
+        padding: 0 4px;
+    }
+  }
+}
+
+.footer_icon {
+    @include flex (row, center, top, nowrap);
+    a {
+      display: block;
+      cursor: pointer;
+    }
+}
+
+
+@media (max-width: $tablet) {
+    .footer_block {
+        @include flex (column, center, top, nowrap);
+    }
+
+    .footer_bottom_block {
+        p {
+            font-size: 12px;
+          }
+        a {
+            font-size: 12px;
+        }
+    }
+
+    .footer_block_box {
+      width: 100%;
+      padding-bottom: 25px;
+    }
+}
