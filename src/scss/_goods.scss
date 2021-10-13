@@ -70,8 +70,6 @@
   }
 }
 
-
-
 .video:hover .video-play-shape,
 .video:focus .video-play-shape {
 	fill: #ff0000;
@@ -97,6 +95,7 @@
       }
    }
 }
+
 @media (max-width: $tablet) {
   .goods_cont {
     @include flex (column, center, center, nowrap);

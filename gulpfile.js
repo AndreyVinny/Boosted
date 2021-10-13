@@ -32,7 +32,7 @@ let { src, dest } = require('gulp'),
              scss = require('gulp-sass')(require('sass')),
      autoprefixer = require('gulp-autoprefixer'),
             image = require('gulp-image'),
-            ghPages = require('gulp-gh-pages');
+          ghPages = require('gulp-gh-pages');
 
 
 
