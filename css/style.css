@@ -1190,6 +1190,13 @@ a {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
   }
+  .goods_video iframe {
+    width: 100%;
+  }
+
+  .video {
+    max-width: 400px;
+  }
 }
 @media (max-width: 420px) {
   .goods_cont_box {
@@ -1200,6 +1207,10 @@ a {
   }
   .goods_cont_box .goods_box-text p {
     font-size: 158x;
+  }
+
+  .video {
+    max-width: 300px;
   }
 }
 #accessories {
