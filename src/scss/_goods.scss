@@ -114,10 +114,16 @@
    }
    .goods_video {
      @include flex (column, center, center, nowrap);
-       // iframe {
-       //   width: 100%;
-       // }
+       iframe {
+         width: 100%;
+       }
    }
+
+   .video {
+    max-width: 400px;
+  }
+
+
 }
 @media (max-width: $mobile) {
   .goods_cont_box {
@@ -131,4 +137,7 @@
           }
       }
    }
+   .video {
+    max-width: 300px;
+  }
 }
